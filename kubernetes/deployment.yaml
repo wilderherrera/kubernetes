@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: ms-users
-          image: wilderherrera10/ms-users:v1
+          image: wilderherrera10/ms-users:v2
           env:
             - name: DATABASE_HOST
               valueFrom:
