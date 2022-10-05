@@ -1,0 +1,44 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  kafka:
+    bootstrap-servers: ${GLOBAL_KAFKA_HOST:localhost:9092}
+    producer:
+      bootstrap-servers: ${GLOBAL_KAFKA_HOST:localhost:9092}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: ${GLOBAL_KAFKA_HOST:localhost:9092}
+      group-id: logistic_routing
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:admin}
+  liquibase:
+    enabled: false
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      write_dates_as_timestamps: false
+server:
+  error:
+    include-stacktrace: always
+    include-message: always
+
+logging:
+  level:
+    tul:
+      com:
+        examples:
+          spring: TRACE
+    org:
+      springframework:
+        cache: TRACE
+jwt:
+  expiration-time: 3600 # 1 hour in seconds
+  expiration-time-refresh-token: 31536000 # 1 year in seconds
