@@ -6,7 +6,7 @@ spring:
     property-naming-strategy: SNAKE_CASE
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${DATABASE_HOST:localhost}:3306/${MS_NAME:ms_users}
+    url: jdbc:mysql://${DATABASE_HOST:54.165.78.242}:3306/${MS_NAME:ms_users}
     username: ${DATABASE_USER:root}
     password: ${DATABASE_PASSWORD:root}
   jpa:

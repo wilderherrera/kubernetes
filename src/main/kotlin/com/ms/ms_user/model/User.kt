@@ -1,5 +1,6 @@
 package com.ms.ms_user.model
 
+import org.springframework.data.annotation.CreatedDate
 import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -17,5 +18,6 @@ class User(
     var email: String? = null,
     var nombre: String? = null,
     var apellido: String? = null,
+    @CreatedDate
     var fecha: LocalDateTime? = LocalDateTime.now()
 )
