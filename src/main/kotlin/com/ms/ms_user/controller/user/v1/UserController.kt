@@ -5,11 +5,14 @@ import com.ms.ms_user.dto.user.v1.UserRequest
 import com.ms.ms_user.model.User
 import com.ms.ms_user.service.user.v1.UserService
 import com.sipios.springsearch.anotation.SearchSpec
+import com.tul.logistic.logistic_packing.dto.request.OnCreate
+import com.tul.logistic.logistic_packing.dto.request.OnUpdate
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.domain.Specification
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -31,11 +34,11 @@ class UserController(
     }
 
     @PostMapping
-    fun create(@RequestBody request: UserRequest): ResponseEntity<UserDto> =
+    fun create(@Validated(OnCreate::class) @RequestBody request: UserRequest): ResponseEntity<UserDto> =
         ResponseEntity(userService.save(request), HttpStatus.CREATED)
 
     @PutMapping("/{userId}")
-    fun update(@RequestBody request: UserRequest, @PathVariable userId: Long): ResponseEntity<UserDto> =
+    fun update(@Validated(OnUpdate::class)@RequestBody request: UserRequest, @PathVariable userId: Long): ResponseEntity<UserDto> =
         ResponseEntity(userService.update(userId, request), HttpStatus.OK)
 
     @GetMapping("/{userId}")

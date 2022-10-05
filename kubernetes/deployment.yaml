@@ -20,8 +20,8 @@ spec:
           env:
             - name: DATABASE_HOST
               valueFrom:
-                  configMapKeyRef:
-                    name: ms-users
+                  secretKeyRef:
+                    name: ms-users-database-conection
                     key: DATABASE_HOST
             - name: MS_NAME
               valueFrom:
@@ -30,13 +30,13 @@ spec:
                     key: MS_NAME
             - name: DATABASE_USER
               valueFrom:
-                  configMapKeyRef:
-                    name: ms-users
+                  secretKeyRef:
+                    name: ms-users-database-conection
                     key: DATABASE_USER
             - name: DATABASE_PASSWORD
               valueFrom:
-                  configMapKeyRef:
-                    name: ms-users
+                  secretKeyRef:
+                    name: ms-users-database-conection
                     key: DATABASE_PASSWORD
           ports:
             - containerPort: 9095

@@ -3,7 +3,4 @@ kind: ConfigMap
 metadata:
   name: ms-users
 data:
-  DATABASE_HOST: "54.165.78.242"
-  DATABASE_PASSWORD: "root"
-  DATABASE_USER: "root"
   MS_NAME: "ms_users"
