@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-users
+  labels:
+    app: ms-users
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ms-users
+  template:
+    metadata:
+      labels:
+        app: ms-users
+    spec:
+      containers:
+        - name: ms-users
+          image: wilderherrera10/ms-users:v1
+          env:
+            - name: DATABASE_HOST
+              valueFrom:
+                  configMapKeyRef:
+                    name: ms-users
+                    key: DATABASE_HOST
+            - name: MS_NAME
+              valueFrom:
+                  configMapKeyRef:
+                    name: ms-users
+                    key: MS_NAME
+            - name: DATABASE_USER
+              valueFrom:
+                  configMapKeyRef:
+                    name: ms-users
+                    key: DATABASE_USER
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                  configMapKeyRef:
+                    name: ms-users
+                    key: DATABASE_PASSWORD
+          ports:
+            - containerPort: 9095

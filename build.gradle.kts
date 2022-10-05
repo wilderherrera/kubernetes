@@ -32,6 +32,7 @@ dependencies {
     kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
     api("org.mapstruct:mapstruct:1.4.1.Final")
     implementation("commons-validator:commons-validator:1.7")
+    implementation("com.h2database:h2")
     implementation("org.springframework.boot:spring-boot-starter-actuator:2.7.3")
 
 }

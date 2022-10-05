@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ms-users
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: ms-users-wilderherrera.cloud.okteto.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: ms-users
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
