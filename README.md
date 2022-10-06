@@ -1,7 +1,8 @@
 ## Instrucciones para compilacion -- Java 11  
 ####  Corra el siguiente comando ```./gradlew clean build ```  para compilar el proyecto
 ##   Instrucciones para creacion de imagen Docker
-####  Corra el siguiente comando ```docker build  . ```  para crear la imagen de Docker
+####  Corra el siguiente comando ```docker build -t ms-users:v1  . ```  para crear la imagen de Docker
+####  Corra el siguiente comando ```docker run ms-users:v1 -p 9095:9095 --env MS_PORT=9095 --env DATABASE_HOST={database_host} --env DATABASE_PASSWORD={database_passdowd} --env DATABASE_USER={database_username} --env MS_NAME=ms_users ```  para crear la imagen de Docker
 ####  Corra el siguiente comando ```docker push ```  para cargar la imagen a DockerHub
 ##   Instrucciones para levantar el cluster k8s
 #### Cree el secret para la conexion del microservicio con la base de datos
