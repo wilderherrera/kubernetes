@@ -1,4 +1,4 @@
-## Instrucciones para compilacion
+## Instrucciones para compilacion -- Java 11  
 ####  Corra el siguiente comando ```./gradlew clean build ```  para compilar el proyecto
 ##   Instrucciones para creacion de imagen Docker
 ####  Corra el siguiente comando ```docker build  . ```  para crear la imagen de Docker
